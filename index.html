@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerneltics</title>
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Link to Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        html{
+/*            font-size: 16px;
+            font-family: 'Poppins', sans-serif;*/
+            overflow: hidden;
+            overflow-x: hidden;
+            pointer-events: none; /* Makes mouse events pass through the image */
+
+        }
+        *{
+            margin: 0 ;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --backgraound-color: #0E0021;
+            --highlight-color: #1B0142;
+            --card-color: #241D36;
+            --other-color: #3B354C;
+            --outline-color: #544E63;
+            --back-color: #271a36;
+            
+            --gradient-start: #AE3D53;
+            --gradient-end: #0F3A7C;
+            /* background: linear-gradient(to right, var(--gradient-start), var(--gradient-end)); */
+            --primary-text: #FFFFFF;
+            --secondary-text: #F5F5F6;
+            --thirty-text: #D9D6DB;
+        }
+        h2{
+            margin: 0;
+        }
+        
+        body{
+            background-color: var(--backgraound-color);
+        }
+        a{
+            text-decoration: none;
+            cursor: pointer;
+        }
+        ul{
+            list-style: none;
+        }
+        .linner{
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            user-select: none; /* Prevents text selection of the image */
+            pointer-events: none; /* Makes mouse events pass through the image */
+        
+        }
+        .t{
+            top: 0;
+            left: -130px;
+        }
+        .b{
+            bottom: -250px;
+            right: -250px;
+        }
+        header{
+            width: 100%;
+            height: 60px;  
+            padding: 15px;
+        }
+        header .container{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .left h2{
+            color: var(--primary-text);
+        }
+        header .right ul{
+            height: 100%;
+            width: 100%;
+            margin: 0 !important;
+        }
+        header .right ul li{
+            display: inline;
+            margin-left: 15px;
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        header .right ul li a{
+            color: var(--primary-text);
+        }
+        main{
+            width: 100%;
+            height: calc(100vh - 90px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        main .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-text);
+            height: 100%;
+        }
+        main .content h3{
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        main .content p{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        main .content :nth-child(1) h3{
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
+        main .content :nth-child(2) p{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        main .content :nth-child(3) p{
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        main .content .bottom{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+        main .content .btns > a i{
+            margin-right: 10px;
+        }
+        main .content .bottom .btns {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        main .content .btns > a, main .content .btns > button {
+            padding: 10px 20px;
+            width: 35%;
+            max-width: 250px;
+            border-radius: 14px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            text-decoration: none; /* Remove underline from links */
+            text-align: center;
+        }
+        
+        main .content .btns > a:nth-child(1), main .content .btns > button:nth-child(1) {
+            background-color: var(--primary-text);
+            color: #000;
+            font-size: 20px;
+        }
+        
+        main .content .btns > a:nth-child(2), main .content .btns > button:nth-child(2) {
+            background-color: var(--back-color); /* Ensure this variable is defined */
+            color: var(--primary-text);
+            font-size: 20px;
+        }
+        
+        main .content .btns > a:nth-child(1):hover, main .content .btns > button:nth-child(1):hover {
+            background-color: #ffffff9c;
+        }
+        
+        main .content .btns > a:nth-child(2):hover, main .content .btns > button:nth-child(2):hover {
+            background-color: #271a36a2;
+        }
+        
+        @media (max-width: 768px) {
+            main .content .btns > a, main .content .btns > button {
+                width: 80%;
+            }
+        }
+        
+        
+    </style>
+
+</head>
+<body>
+    <img src="./image/t-l.png" class="linner t" alt="">
+    <header>
+        <div class="container">
+            <div class="left"><h2>Kerneltics</h2></div>
+            <div class="right">
+                <ul>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="https://www.linkedin.com/company/kerneltics/mycompany/?viewAsMember=true">About</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="content">
+                <div> <h3>Kerneltics </h3></div>
+                <div><p>Technology Company </p></div>
+                <div><p>Coming soon</p></div>
+                <div class="bottom">
+                    <div> <h6>Contact us</h6></div>
+                    <div class="btns">
+                        <!-- Email Link -->
+                        <a href="mailto:kerneltics@example.com" target="_blank" class="btn email-btn">
+                            <i class="far fa-envelope"></i>E-mail
+                        </a>
+                        <!-- Twitter Account Link -->
+                        <a href="https://twitter.com/kerneltics" target="_blank" class="btn twitter-btn">
+                            <i class="fab fa-x-twitter"></i> account
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+    <img src="./image/b-r.png" alt="" class="linner b">
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
